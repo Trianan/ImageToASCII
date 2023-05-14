@@ -14,12 +14,16 @@ gray_img = img.convert("L")
 width, height = gray_img.size
 
 # Create a 2D list to store the lightness values of each pixel
-pixels = [[0 for y in range(height)] for x in range(width)]
+pixels = [[0 for column in range(width)] for row in range(height)]
 
 # Loop through each pixel and store its lightness value in the list
-for x in range(width):
-    for y in range(height):
-        pixels[x][y] = gray_img.getpixel((x, y))
+#for x in range(width):
+    #for y in range(height):
+        #pixels[x][y] = gray_img.getpixel((x, y))
+
+for row in range(height):
+    for column in range(width):
+        pixels[row][column] = gray_img.getpixel((column, row))
 
 # Print the list of lightness values
 for line in pixels:
