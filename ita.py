@@ -1,5 +1,6 @@
 from PIL import Image
 from datetime import datetime
+import random
 
 print('''
                                                                                     
@@ -58,7 +59,7 @@ while True:
             print(line)
 
         ascii_img = []
-        chars = "$@%&#*\{?-+<!:^. "[::-1] # Reverse string
+        chars = "$@%&#*\\{?-+<!:^. "[::-1] # Reverse string
         for line in pixels:
             ascii_line = []
             for value in line:
@@ -72,7 +73,7 @@ while True:
             ascii_img.append(ascii_line)
 
         spacing = int(input('Enter the number of spaces between characters: '))
-        with open(f'./output/{datetime.now()}.txt', 'a') as output_file:
+        with open(f'./output/{img_file.split("\\")[-1]}_ASCII_{random.randint(0,100)}.txt', 'a') as output_file:
             for line in ascii_img:
                 line_str = (' '*spacing).join(line)
                 print(line_str)
